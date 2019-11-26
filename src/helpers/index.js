@@ -5,6 +5,7 @@ const printTime = (fnDict) => {
     const currentProp = keys[counter];
     const fn = fnDict[currentProp];
 
+    console.log(`\n--${currentProp.toUpperCase()}`);
     console.time(currentProp);
     console.log(`Value: `, fn());
     console.timeEnd(currentProp);
@@ -19,6 +20,7 @@ const print = (fnDict) => {
     const currentProp = keys[counter];
     const fn = fnDict[currentProp];
 
+    console.log('\n');
     console.log(currentProp, fn());
   }
 };
