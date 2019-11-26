@@ -28,9 +28,9 @@ module.exports = function (inputArray = []) {
 
       // NOTE: runs methods with index if iterateeFn has >1 args
       if (iterateeFn.length > 1) {
-        itemFnApplied = iterateeFn(currentItem, counter);
+        iterateeFn(currentItem, counter);
       } else {
-        itemFnApplied = iterateeFn(currentItem);
+        iterateeFn(currentItem);
       }
     }
   }
