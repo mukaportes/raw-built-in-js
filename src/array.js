@@ -109,4 +109,20 @@ module.exports = function (inputArray = []) {
 
     return inputArrayClone;
   }
+
+  this.includes = function(targetItem, startIndex = 0) {
+    let existsInArray = false;
+
+    for (let counter = startIndex; counter < inputArray.length; counter += 1) {
+      const item = inputArray[counter];
+
+      if (item === targetItem) {
+        existsInArray = true;
+
+        break;
+      }
+    }
+
+    return existsInArray;
+  }
 }

@@ -50,11 +50,20 @@ const inputArray = new ArrayWrapper(arr);
 // console.log('arrEvery', arrEvery);
 // console.log('arrEveryVoid', arrEveryVoid);
 
-// TESTING: array.fill()
-const arrFill = inputArray.fill('abc', 1, 3);
-const arrFillNegative = inputArray.fill('abc', -1, 5);
-const arrFillInvalidInterval = inputArray.fill('abc', -1, -6);
+// // TESTING: array.fill()
+// const arrFill = inputArray.fill('abc', 1, 3);
+// const arrFillNegative = inputArray.fill('abc', -1, 5);
+// const arrFillInvalidInterval = inputArray.fill('abc', -1, -6);
 
-console.log('arrFill', arrFill);
-console.log('arrFillNegative', arrFillNegative);
-console.log('arrFillInvalidInterval', arrFillInvalidInterval);
+// console.log('arrFill', arrFill);
+// console.log('arrFillNegative', arrFillNegative);
+// console.log('arrFillInvalidInterval', arrFillInvalidInterval);
+
+// TESTING: array.includes()
+const arrIncludes = inputArray.includes(2);
+const arrIncludesStart = inputArray.includes(5, 2);
+const arrIncludesFalse = inputArray.includes('abc');
+
+console.log('arrIncludes', arrIncludes);
+console.log('arrIncludesStart', arrIncludesStart);
+console.log('arrIncludesFalse', arrIncludesFalse);
