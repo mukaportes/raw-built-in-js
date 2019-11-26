@@ -67,4 +67,21 @@ module.exports = function (inputArray = []) {
 
     return filteredArray;
   };
+
+  this.find = function(findFn = () => false) {
+    let itemFound;
+    const arrayLength = inputArray.length;
+
+    for (let counter = 0; counter < arrayLength; counter += 1) {
+      const item = inputArray[counter];
+
+      if (findFn(item)) {
+        itemFound = item;
+
+        break;
+      }
+    }
+
+    return itemFound;
+  }
 }
