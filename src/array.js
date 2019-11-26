@@ -35,26 +35,24 @@ module.exports = function (inputArray = []) {
     }
   }
 
-  this.reduce = function (accumulatorFn = () => { }, accumulator) {
-    let accumulatorCopy;
-
+  this.reduce = function (accumulatorFn = () => { }) {
     // NOTE: used arguments so I wouldnt need to know the 2nd arg data type to create its clone
-    ([fnCopy, accumulatorCopy] = [...arguments]);
+    ([fnCopy, accumulator] = [...arguments]);
     const arrayLength = inputArray.length;
 
     for (let counter = 0; counter < arrayLength; counter += 1) {
       const item = inputArray[counter];
 
       if (accumulatorFn.length === 2) {
-        accumulatorCopy = accumulatorFn(accumulatorCopy, item);
+        accumulator = accumulatorFn(accumulator, item);
       } else if (accumulatorFn.length === 3) {
-        accumulatorCopy = accumulatorFn(accumulatorCopy, item, counter);
+        accumulator = accumulatorFn(accumulator, item, counter);
       } else if (accumulatorFn.length === 4) {
-        accumulatorCopy = accumulatorFn(accumulatorCopy, item, counter, inputArray);
+        accumulator = accumulatorFn(accumulator, item, counter, inputArray);
       }
     }
 
-    return accumulatorCopy;
+    return accumulator;
   }
 
   this.filter = function(filterFn = () => true) {
