@@ -42,3 +42,10 @@ const inputArray = new ArrayWrapper(arr);
 
 // console.log('arrFind', arrFind);
 // console.log('arrFindVoid', arrFindVoid);
+
+// // TESTING: array.every()
+// const arrEvery = inputArray.every(item => item > 0);
+// const arrEveryVoid = inputArray.every(item => item > 99);
+
+// console.log('arrEvery', arrEvery);
+// console.log('arrEveryVoid', arrEveryVoid);

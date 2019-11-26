@@ -1,9 +1,8 @@
 module.exports = function (inputArray = []) {
   this.map = function (iterateeFn = () => { }) {
     const formattedArray = [];
-    const arrayLength = inputArray.length;
 
-    for (let counter = 0; counter < arrayLength; counter += 1) {
+    for (let counter = 0; counter < inputArray.length; counter += 1) {
       const currentItem = inputArray[counter];
       let itemFnApplied;
 
@@ -21,9 +20,7 @@ module.exports = function (inputArray = []) {
   }
 
   this.forEach = function (iterateeFn = () => { }) {
-    const arrayLength = inputArray.length;
-
-    for (let counter = 0; counter < arrayLength; counter += 1) {
+    for (let counter = 0; counter < inputArray.length; counter += 1) {
       const currentItem = inputArray[counter];
 
       // NOTE: runs methods with index if iterateeFn has >1 args
@@ -38,9 +35,8 @@ module.exports = function (inputArray = []) {
   this.reduce = function (accumulatorFn = () => { }) {
     // NOTE: used arguments so I wouldnt need to know the 2nd arg data type to create its clone
     ([fnCopy, accumulator] = [...arguments]);
-    const arrayLength = inputArray.length;
 
-    for (let counter = 0; counter < arrayLength; counter += 1) {
+    for (let counter = 0; counter < inputArray.length; counter += 1) {
       const item = inputArray[counter];
 
       if (accumulatorFn.length === 2) {
@@ -57,9 +53,8 @@ module.exports = function (inputArray = []) {
 
   this.filter = function(filterFn = () => true) {
     const filteredArray = [];
-    const arrayLength = inputArray.length;
 
-    for (let counter = 0; counter < arrayLength; counter += 1) {
+    for (let counter = 0; counter < inputArray.length; counter += 1) {
       const item = inputArray[counter];
 
       if (filterFn(item)) filteredArray.push(item);
@@ -70,9 +65,8 @@ module.exports = function (inputArray = []) {
 
   this.find = function(findFn = () => false) {
     let itemFound;
-    const arrayLength = inputArray.length;
 
-    for (let counter = 0; counter < arrayLength; counter += 1) {
+    for (let counter = 0; counter < inputArray.length; counter += 1) {
       const item = inputArray[counter];
 
       if (findFn(item)) {
@@ -83,5 +77,21 @@ module.exports = function (inputArray = []) {
     }
 
     return itemFound;
+  }
+
+  this.every = function(conditionFn = () => true) {
+    let allItemsMeetCondition = true;
+
+    for (let counter = 0; counter < inputArray.length; counter += 1) {
+      const item = inputArray[counter];
+      
+      if (!conditionFn(item)) {
+        allItemsMeetCondition = false;
+
+        break;
+      }
+    }
+
+    return allItemsMeetCondition;
   }
 }
