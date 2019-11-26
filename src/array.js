@@ -7,7 +7,7 @@ module.exports = function (inputArray = []) {
       const currentItem = inputArray[counter];
       let itemFnApplied;
 
-      // runs methods with index if iterateeFn has 2 args
+      // NOTE: runs methods with index if iterateeFn has 2 args
       if (iterateeFn.length > 1) {
         itemFnApplied = iterateeFn(currentItem, counter);
       } else {
@@ -18,5 +18,20 @@ module.exports = function (inputArray = []) {
     }
 
     return formattedArray;
+  }
+
+  this.forEach = function (iterateeFn = () => { }) {
+    const arrayLength = inputArray.length;
+
+    for (let counter = 0; counter < arrayLength; counter += 1) {
+      const currentItem = inputArray[counter];
+
+      // NOTE: runs methods with index if iterateeFn has 2 args
+      if (iterateeFn.length > 1) {
+        itemFnApplied = iterateeFn(currentItem, counter);
+      } else {
+        itemFnApplied = iterateeFn(currentItem);
+      }
+    }
   }
 }
