@@ -49,3 +49,12 @@ const inputArray = new ArrayWrapper(arr);
 
 // console.log('arrEvery', arrEvery);
 // console.log('arrEveryVoid', arrEveryVoid);
+
+// TESTING: array.fill()
+const arrFill = inputArray.fill('abc', 1, 3);
+const arrFillNegative = inputArray.fill('abc', -1, 5);
+const arrFillInvalidInterval = inputArray.fill('abc', -1, -6);
+
+console.log('arrFill', arrFill);
+console.log('arrFillNegative', arrFillNegative);
+console.log('arrFillInvalidInterval', arrFillInvalidInterval);

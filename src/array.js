@@ -94,4 +94,19 @@ module.exports = function (inputArray = []) {
 
     return allItemsMeetCondition;
   }
+
+  this.fill = function(defaultValue, startIndex = 0, endIndex = inputArray.length) {
+    if ((endIndex - startIndex) <= 0) return inputArray;
+
+    let start = startIndex < 0 ? startIndex + inputArray.length : startIndex;
+    let end = endIndex < 0 ? endIndex + inputArray.length : endIndex;
+
+    const inputArrayClone = [...inputArray];
+
+    for (let counter = Number(start); counter < Number(end); counter += 1) {
+      inputArrayClone[counter] = defaultValue;
+    }
+
+    return inputArrayClone;
+  }
 }
